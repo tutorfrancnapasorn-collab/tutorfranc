@@ -7,19 +7,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --p1: #7c3aed;
-            --p2: #a855f7;
-            --p3: #c084fc;
-            --p4: #e9d5ff;
-            --acc: #f0abfc;
-            --acc2: #fbbf24;
-            --bg: #faf5ff;
-            --bg2: #f3e8ff;
-            --card: #ffffff;
-            --text: #3b0764;
-            --text2: #6b21a8;
-            --text3: #9333ea;
-            --border: rgba(167,139,250,0.3);
+            --p1: #4a1472;
+            --p2: #6b21a8;
+            --p3: #9333ea;
+            --p4: #2d0a4e;
+            --acc: #f59e0b;
+            --acc2: #d97706;
+            --bg: #1a0a2e;
+            --bg2: #2d1052;
+            --card: #23104a;
+            --text: #fde68a;
+            --text2: #e9d5ff;
+            --text3: #c084fc;
+            --border: rgba(245,158,11,0.3);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -40,7 +40,7 @@
             left: -10%;
             width: 60%;
             height: 60%;
-            background: radial-gradient(circle, rgba(167,139,250,0.25) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(107,33,168,0.4) 0%, transparent 70%);
             border-radius: 50%;
             animation: floatBlob 8s ease-in-out infinite;
             pointer-events: none;
@@ -53,7 +53,7 @@
             right: -10%;
             width: 55%;
             height: 55%;
-            background: radial-gradient(circle, rgba(240,171,252,0.2) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(245,158,11,0.15) 0%, transparent 70%);
             border-radius: 50%;
             animation: floatBlob 10s ease-in-out infinite reverse;
             pointer-events: none;
@@ -119,13 +119,13 @@
         .name {
             font-size: 1.7rem;
             font-weight: 700;
-            color: var(--text);
+            color: #fde68a;
             line-height: 1.2;
             margin-bottom: 4px;
         }
 
         .name span {
-            background: linear-gradient(135deg, var(--p1), var(--p2), var(--acc));
+            background: linear-gradient(135deg, #fbbf24, #f59e0b, #fde68a);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -157,13 +157,13 @@
 
         .bio {
             font-size: 0.82rem;
-            color: var(--text2);
+            color: #e9d5ff;
             line-height: 1.8;
             font-weight: 400;
         }
 
         .bio .highlight {
-            color: var(--p1);
+            color: #fbbf24;
             font-weight: 600;
         }
 
@@ -196,7 +196,7 @@
 
         .soc-btn:hover { transform: translateY(-3px) scale(1.1); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
         .soc-btn svg { width: 22px; height: 22px; }
-        .soc-label { font-size: 10px; color: var(--text3); font-weight: 600; letter-spacing: 0.03em; }
+        .soc-label { font-size: 10px; color: #c084fc; font-weight: 600; letter-spacing: 0.03em; }
 
         .soc-fb { background: linear-gradient(135deg, #1877f2, #0c52b5); }
         .soc-tt { background: linear-gradient(135deg, #111, #333); border: 1px solid #555; }
@@ -249,10 +249,11 @@
         .btn-line:hover { box-shadow: 0 8px 25px rgba(0,185,0,0.45); }
 
         .btn-sheet {
-            background: linear-gradient(135deg, var(--p1), var(--p2));
-            box-shadow: 0 4px 15px rgba(124,58,237,0.3);
+            background: linear-gradient(135deg, #d97706, #f59e0b);
+            box-shadow: 0 4px 15px rgba(245,158,11,0.35);
+            color: #1a0a2e;
         }
-        .btn-sheet:hover { box-shadow: 0 8px 25px rgba(124,58,237,0.45); }
+        .btn-sheet:hover { box-shadow: 0 8px 25px rgba(245,158,11,0.5); }
 
         /* ===== FREE BADGE ===== */
         @keyframes pulse-badge {
@@ -265,7 +266,7 @@
             align-items: center;
             gap: 4px;
             background: linear-gradient(135deg, #f59e0b, #fbbf24);
-            color: #78350f;
+            color: #1a0a2e;
             font-size: 0.7rem;
             font-weight: 700;
             padding: 3px 10px;
@@ -285,12 +286,12 @@
         .section-hd h2 {
             font-size: 1rem;
             font-weight: 700;
-            color: var(--text);
+            color: #fde68a;
         }
 
         .section-hd span {
             font-size: 0.72rem;
-            color: var(--text3);
+            color: #c084fc;
         }
 
         /* ===== SHEET CARDS ===== */
@@ -303,17 +304,17 @@
         }
 
         .sheet-card {
-            background: white;
+            background: #2d1052;
             border-radius: 20px;
             overflow: hidden;
-            border: 1.5px solid rgba(167,139,250,0.25);
-            box-shadow: 0 4px 20px rgba(124,58,237,0.08);
+            border: 1.5px solid rgba(245,158,11,0.25);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
             display: flex;
             transition: all 0.25s ease;
             cursor: pointer;
         }
 
-        .sheet-card:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(124,58,237,0.15); border-color: rgba(167,139,250,0.5); }
+        .sheet-card:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(245,158,11,0.2); border-color: rgba(245,158,11,0.5); }
 
         .sheet-card-img {
             width: 110px;
@@ -341,14 +342,14 @@
         .sheet-card-title {
             font-size: 0.85rem;
             font-weight: 700;
-            color: var(--text);
+            color: #fde68a;
             line-height: 1.4;
             margin-bottom: 6px;
         }
 
         .sheet-card-desc {
             font-size: 0.72rem;
-            color: #6b7280;
+            color: #c084fc;
             line-height: 1.5;
             margin-bottom: 10px;
         }
@@ -371,19 +372,19 @@
         .detail-btn:hover { transform: scale(1.04); }
 
         /* Subject colors */
-        .subj-thai { color: #0284c7; }
+        .subj-thai { color: #38bdf8; }
         .btn-thai { background: linear-gradient(135deg, #0284c7, #38bdf8); }
 
-        .subj-eng { color: #db2777; }
+        .subj-eng { color: #f472b6; }
         .btn-eng { background: linear-gradient(135deg, #db2777, #f472b6); }
 
-        .subj-math { color: #1e40af; }
+        .subj-math { color: #93c5fd; }
         .btn-math { background: linear-gradient(135deg, #1e40af, #3b82f6); color: white; }
 
         /* ===== OVERLAY / BOTTOM SHEET ===== */
         #overlay {
             position: fixed; inset: 0;
-            background: rgba(59,7,100,0.5);
+            background: rgba(10,4,20,0.75);
             backdrop-filter: blur(6px);
             z-index: 100;
             opacity: 0; pointer-events: none;
@@ -396,9 +397,9 @@
             left: 50%; transform: translateX(-50%) translateY(110%);
             width: 100%; max-width: 430px;
             max-height: 88dvh;
-            background: white;
+            background: #1a0a2e;
             border-radius: 28px 28px 0 0;
-            border-top: 3px solid var(--p3);
+            border-top: 3px solid #f59e0b;
             overflow-y: auto;
             z-index: 101;
             transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
@@ -409,37 +410,37 @@
 
         .bs-handle {
             width: 44px; height: 5px;
-            background: var(--p4);
+            background: rgba(245,158,11,0.4);
             border-radius: 3px;
             margin: 14px auto 0;
         }
 
         .bs-header {
             position: sticky; top: 0;
-            background: white;
+            background: #1a0a2e;
             padding: 10px 16px 12px;
             display: flex; align-items: center; justify-content: space-between;
-            border-bottom: 1px solid var(--bg2);
+            border-bottom: 1px solid rgba(245,158,11,0.2);
             z-index: 10;
         }
 
         .bs-title {
             font-size: 1rem;
             font-weight: 700;
-            color: var(--text);
+            color: #fde68a;
         }
 
         .bs-close {
             width: 34px; height: 34px;
             border-radius: 50%;
-            background: var(--bg2);
-            border: none; cursor: pointer;
+            background: rgba(245,158,11,0.15);
+            border: 1px solid rgba(245,158,11,0.3); cursor: pointer;
             display: flex; align-items: center; justify-content: center;
-            color: var(--text2);
+            color: #fbbf24;
             transition: all 0.2s ease;
             font-size: 1rem;
         }
-        .bs-close:hover { background: var(--p4); transform: scale(1.1); }
+        .bs-close:hover { background: rgba(245,158,11,0.3); transform: scale(1.1); }
 
         .bs-body { padding: 16px; }
 
@@ -447,21 +448,21 @@
             width: 100%;
             border-radius: 16px;
             margin-bottom: 16px;
-            border: 2px solid var(--bg2);
+            border: 2px solid rgba(245,158,11,0.2);
         }
 
         .bs-section {
-            background: var(--bg2);
+            background: #2d1052;
             border-radius: 14px;
             padding: 14px;
             margin-bottom: 12px;
-            border: 1px solid var(--border);
+            border: 1px solid rgba(245,158,11,0.2);
         }
 
         .bs-section-title {
             font-size: 0.78rem;
             font-weight: 700;
-            color: var(--text2);
+            color: #fbbf24;
             margin-bottom: 8px;
             display: flex; align-items: center; gap: 5px;
         }
@@ -472,30 +473,30 @@
 
         .bs-list li {
             font-size: 0.78rem;
-            color: var(--text);
+            color: #e9d5ff;
             padding: 5px 0;
-            border-bottom: 1px solid rgba(167,139,250,0.15);
+            border-bottom: 1px solid rgba(245,158,11,0.1);
             display: flex; align-items: flex-start; gap: 7px;
             line-height: 1.5;
         }
         .bs-list li:last-child { border-bottom: none; }
-        .bs-list li::before { content: '✦'; color: var(--p2); font-size: 0.65rem; margin-top: 3px; flex-shrink: 0; }
+        .bs-list li::before { content: '✦'; color: #f59e0b; font-size: 0.65rem; margin-top: 3px; flex-shrink: 0; }
 
         .bs-cta {
             display: flex; align-items: center; justify-content: center; gap: 8px;
             padding: 14px;
             border-radius: 100px;
-            background: linear-gradient(135deg, var(--p1), var(--p2));
-            color: white;
+            background: linear-gradient(135deg, #d97706, #f59e0b);
+            color: #1a0a2e;
             font-family: 'Mitr', sans-serif;
             font-size: 0.88rem;
-            font-weight: 600;
+            font-weight: 700;
             text-decoration: none;
             transition: all 0.2s ease;
             margin-top: 4px;
-            box-shadow: 0 4px 15px rgba(124,58,237,0.3);
+            box-shadow: 0 4px 15px rgba(245,158,11,0.35);
         }
-        .bs-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(124,58,237,0.4); }
+        .bs-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(245,158,11,0.5); }
 
         .promo-badge {
             background: linear-gradient(135deg, #dc2626, #f97316);
@@ -512,8 +513,8 @@
         /* ===== FREE SHEETS SECTION ===== */
         .free-section {
             margin: 0 16px 28px;
-            background: linear-gradient(135deg, #fdf4ff, #f3e8ff);
-            border: 2px solid rgba(167,139,250,0.4);
+            background: linear-gradient(135deg, #2d1052, #1a0a2e);
+            border: 2px solid rgba(245,158,11,0.4);
             border-radius: 20px;
             padding: 18px;
             position: relative;
@@ -533,13 +534,13 @@
         .free-section-title {
             font-size: 0.95rem;
             font-weight: 700;
-            color: var(--text);
+            color: #fde68a;
             margin-bottom: 6px;
         }
 
         .free-section-desc {
             font-size: 0.78rem;
-            color: var(--text2);
+            color: #c084fc;
             line-height: 1.6;
             margin-bottom: 12px;
         }
@@ -556,14 +557,100 @@
             border: 1.5px solid;
         }
 
+        /* ===== COURSE SCROLL CARDS ===== */
+        .course-scroll-wrap {
+            position: relative;
+            margin-bottom: 28px;
+        }
+
+        .course-scroll {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding: 4px 16px 12px;
+            scroll-snap-type: x mandatory;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .course-scroll::-webkit-scrollbar { display: none; }
+
+        .course-card {
+            flex-shrink: 0;
+            width: 200px;
+            background: #2d1052;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1.5px solid rgba(245,158,11,0.25);
+            box-shadow: 0 4px 18px rgba(0,0,0,0.3);
+            scroll-snap-align: start;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+        .course-card:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(245,158,11,0.2); border-color: rgba(245,158,11,0.5); }
+
+        .course-card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            object-position: top center;
+            display: block;
+        }
+
+        .course-card-body {
+            padding: 12px 14px 14px;
+        }
+
+        .course-card-type {
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .course-card-title {
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: #fde68a;
+            line-height: 1.35;
+            margin-bottom: 4px;
+        }
+
+        .course-card-price {
+            font-size: 0.72rem;
+            color: #c084fc;
+            margin-bottom: 10px;
+        }
+
+        .course-card-price strong {
+            color: #fbbf24;
+            font-weight: 700;
+        }
+
+        .course-detail-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            font-family: 'Mitr', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: white;
+            padding: 7px 0;
+            border-radius: 100px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .course-detail-btn:hover { transform: scale(1.03); }
+        .btn-onsite { background: linear-gradient(135deg, #6b21a8, #9333ea); }
+        .btn-online { background: linear-gradient(135deg, #d97706, #f59e0b); color: #1a0a2e; }
+
         .footer {
             text-align: center;
             font-size: 0.7rem;
-            color: #a78bfa;
+            color: #9333ea;
             padding: 0 16px;
         }
-
-        /* Scroll hint arrow */
         @keyframes bounce-y {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(4px); }
@@ -641,13 +728,45 @@
         <div class="free-section-title">แจกชีทติวสอบเข้า ม.1 ฟรี 3 วิชา!</div>
         <div class="free-section-desc">รับชีทสรุปเนื้อหาสำคัญ พร้อมแนวข้อสอบ<br>จากโรงเรียนดัง ครบ 3 วิชาหลัก</div>
         <div class="free-subjects">
-            <span class="free-subj-tag" style="color:#7c3aed;border-color:#c084fc;background:rgba(167,139,250,0.1);">📖 ภาษาไทย</span>
-            <span class="free-subj-tag" style="color:#0369a1;border-color:#7dd3fc;background:rgba(125,211,252,0.1);">🔤 ภาษาอังกฤษ</span>
-            <span class="free-subj-tag" style="color:#b45309;border-color:#fcd34d;background:rgba(253,211,77,0.1);">🔢 คณิตศาสตร์</span>
+            <span class="free-subj-tag" style="color:#c084fc;border-color:#7c3aed;background:rgba(107,33,168,0.3);">📖 ภาษาไทย</span>
+            <span class="free-subj-tag" style="color:#38bdf8;border-color:#0284c7;background:rgba(2,132,199,0.2);">🔤 ภาษาอังกฤษ</span>
+            <span class="free-subj-tag" style="color:#fbbf24;border-color:#d97706;background:rgba(217,119,6,0.2);">🔢 คณิตศาสตร์</span>
         </div>
         <a href="https://lin.ee/sH44xO2" target="_blank" class="bs-cta">
             ทักแชทรับชีทฟรีเลย! 🎉
         </a>
+    </div>
+
+    <!-- COURSE SECTION -->
+    <div id="course-section" style="margin-bottom:0;">
+        <div class="section-hd">
+            <h2>🎓 คอร์สเรียนของเรา</h2>
+            <span>เลื่อนดูได้ →</span>
+        </div>
+        <div class="course-scroll-wrap">
+            <div class="course-scroll">
+                <!-- Onsite -->
+                <div class="course-card" onclick="openCourse('onsite')">
+                    <img src="https://i.postimg.cc/Kj4rD6Jg/MEITU-20260405-175850005.jpg" alt="คอร์ส Onsite" class="course-card-img">
+                    <div class="course-card-body">
+                        <div class="course-card-type" style="color:#c084fc;">👩‍🏫 Onsite</div>
+                        <div class="course-card-title">สอนตัวต่อตัว<br>ที่สะดวก</div>
+                        <div class="course-card-price">เริ่มต้น <strong>250 บาท / ชม.</strong></div>
+                        <button class="course-detail-btn btn-onsite">อ่านรายละเอียด →</button>
+                    </div>
+                </div>
+                <!-- Online -->
+                <div class="course-card" onclick="openCourse('online')">
+                    <img src="https://i.postimg.cc/mZ08SDWc/MEITU-20260406-011218544.jpg" alt="คอร์ส Online" class="course-card-img">
+                    <div class="course-card-body">
+                        <div class="course-card-type" style="color:#38bdf8;">👩‍💻 Online</div>
+                        <div class="course-card-title">เรียนสดผ่านหน้าจอ<br>สะดวก ปลอดภัย</div>
+                        <div class="course-card-price">เริ่มต้น <strong>150 บาท / ชม.</strong></div>
+                        <button class="course-detail-btn btn-online">อ่านรายละเอียด →</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- SHEET CARDS -->
@@ -720,26 +839,78 @@
 </div>
 
 <script>
+const courseData = {
+    onsite: {
+        title: 'คอร์ส Onsite (สอนตัวต่อตัว)',
+        img: 'https://i.postimg.cc/Kj4rD6Jg/MEITU-20260405-175850005.jpg',
+        accent: 'linear-gradient(135deg,#7c3aed,#a855f7)',
+        sub: 'สอนแบบตัวต่อตัว ณ สถานที่ที่สะดวก',
+        prices: [
+            { level: 'ระดับอนุบาล - ประถมศึกษา', price: 'เริ่มต้น 250 บาท / 1 ชม.' },
+            { level: 'ระดับมัธยมศึกษา', price: 'เริ่มต้น 260-270 บาท / 1 ชม.' }
+        ],
+        note: 'อัตราค่าเรียน Onsite อาจมีการปรับเล็กน้อย ขึ้นอยู่กับระยะทางการเดินทางไปสอนในแต่ละพื้นที่',
+        subjects: [
+            'คณิตศาสตร์ : อนุบาล - ม.1',
+            'ภาษาอังกฤษ : อนุบาล - ม.3',
+            'ภาษาไทย : อนุบาล - ม.6'
+        ],
+        goals: [
+            'ติวเข้มสอบเข้า ม.1 เจาะลึกแนวข้อสอบโรงเรียนดัง',
+            'พิชิตข้อสอบ O-NET เทคนิคตัดชอยส์ เพิ่มคะแนนชัวร์',
+            'ติวเพิ่มเกรด ปูพื้นฐานให้แน่น แก้จุดอ่อน เสริมจุดแข็ง'
+        ],
+        promo: 'สมัครเรียน 3 วัน/สัปดาห์ รับสิทธิ์ เรียนฟรีทันที 1 วัน! (รับจำนวนจำกัด)'
+    },
+    online: {
+        title: 'คอร์ส Online (เรียนสดผ่านหน้าจอ)',
+        img: 'https://i.postimg.cc/mZ08SDWc/MEITU-20260406-011218544.jpg',
+        accent: 'linear-gradient(135deg,#0891b2,#22d3ee)',
+        sub: 'เรียนสดผ่านหน้าจอ สะดวก ปลอดภัย ทุกที่',
+        prices: [
+            { level: 'ระดับอนุบาล - ประถมศึกษา', price: '150 บาท / 1 ชม.' },
+            { level: 'ระดับมัธยมศึกษา', price: '160-170 บาท / 1 ชม.' }
+        ],
+        note: 'เรียนสดแบบ Interactive ผ่านโปรแกรม Zoom / Google Meet ตามความสะดวก',
+        subjects: [
+            'คณิตศาสตร์ : อนุบาล - ม.1',
+            'ภาษาอังกฤษ : อนุบาล - ม.3',
+            'ภาษาไทย : อนุบาล - ม.6'
+        ],
+        goals: [
+            'ติวเข้มสอบเข้า ม.1 เจาะลึกแนวข้อสอบโรงเรียนดัง',
+            'พิชิตข้อสอบ O-NET เทคนิคตัดชอยส์ เพิ่มคะแนนชัวร์',
+            'ติวเพิ่มเกรด ปูพื้นฐานให้แน่น แก้จุดอ่อน เสริมจุดแข็ง'
+        ],
+        promo: 'สมัครเรียน 3 วัน/สัปดาห์ รับสิทธิ์ เรียนฟรีทันที 1 วัน! (รับจำนวนจำกัด)'
+    }
+};
+
 const sheetData = {
     thai: {
-        title: '📖 ชีทภาษาไทย สอบเข้า ม.1',
+        title: 'ชีทภาษาไทย สอบเข้า ม.1',
         img: 'https://i.postimg.cc/52P69jBn/IMG-1281.jpg',
         accent: 'linear-gradient(135deg,#0284c7,#38bdf8)',
         heading: 'เจาะลึกข้อสอบเข้า ม.1 ภาษาไทย โรงเรียนดัง',
         sub: 'ชีทเดียวจบ ครบทุกแนวข้อสอบ!',
         points: [
-            'รวมแนวข้อสอบ "ออกสอบจริง" จากโรงเรียนดัง',
+            'รวมแนวข้อสอบ ออกสอบจริง จากโรงเรียนดัง',
             'สรุปเนื้อหาสำคัญ อ่านง่าย เข้าใจไว',
             'เทคนิคทำข้อสอบ + จุดที่ออกบ่อยทุกปี',
             'พร้อมเฉลยละเอียด อธิบายทุกข้อ'
         ],
-        who: ['นักเรียน ป.6 ที่เตรียมสอบเข้า ม.1', 'คนที่อยาก "เก็บคะแนนภาษาไทยให้เต็ม!"', 'คนที่ไม่มีเวลาอ่านหนังสือเยอะ'],
+        who: [
+            'นักเรียน ป.6 ที่เตรียมสอบเข้า ม.1',
+            'คนที่อยากเก็บคะแนนภาษาไทยให้เต็ม',
+            'คนที่ไม่มีเวลาอ่านหนังสือเยอะ'
+        ],
         close: 'อ่านเล่มนี้ = รู้แนว + แม่นจุดออกสอบ เพิ่มโอกาสสอบติดโรงเรียนดัง! ราคาเบาๆ แต่เนื้อหาแน่นมาก'
     },
     eng: {
-        title: '🔤 ชีทภาษาอังกฤษ สอบเข้า ม.1',
+        title: 'ชีทภาษาอังกฤษ สอบเข้า ม.1',
         img: 'https://i.postimg.cc/hPsGMh5q/IMG-1280.jpg',
         accent: 'linear-gradient(135deg,#db2777,#f472b6)',
+        heading: 'เจาะลึกข้อสอบเข้า ม.1 วิชาภาษาอังกฤษ',
         sub: 'เตรียมพร้อมก่อนสอบจริง แบบมั่นใจ 100%!',
         points: [
             'สรุป Grammar สำคัญ เข้าใจง่าย',
@@ -747,55 +918,80 @@ const sheetData = {
             'เทคนิคทำข้อสอบให้ไว + แม่นยำ',
             'รวมข้อสอบโรงเรียนดัง อัปเดตล่าสุด'
         ],
-        who: ['นักเรียน ป.6 ที่เตรียมสอบเข้า ม.1', 'ห้องพิเศษ / โรงเรียนชั้นนำ'],
+        who: [
+            'นักเรียน ป.6 ที่เตรียมสอบเข้า ม.1',
+            'ห้องพิเศษ / โรงเรียนชั้นนำ'
+        ],
         close: 'อ่านจบ = ทำข้อสอบได้จริง ไม่ต้องเสียเวลาลองผิดลองถูก! ใช้ทบทวนก่อนสอบ / ฝึกทำโจทย์ / เก็บคะแนนให้ปัง'
     },
     math: {
-        title: '🔢 ชีทคณิตศาสตร์ สอบเข้า ม.1',
+        title: 'ชีทคณิตศาสตร์ สอบเข้า ม.1',
         img: 'https://i.postimg.cc/mkNgvrZd/IMG-1279.jpg',
         accent: 'linear-gradient(135deg,#1e40af,#3b82f6)',
         heading: 'ติวสอบเข้า ม.1 โรงเรียนดัง วิชาคณิตศาสตร์',
-        sub: 'ชีท "เจาะลึกข้อสอบจริง" อัปเดตล่าสุด!',
+        sub: 'ชีทเจาะลึกข้อสอบจริง อัปเดตล่าสุด!',
         points: [
             'รวมแนวข้อสอบที่ออกบ่อย',
             'สรุปสูตร + เทคนิคทำเร็ว',
             'มีเฉลยละเอียด เข้าใจง่าย',
-            'ครอบคลุมเนื้อหาที่ "ออกสอบจริง"'
+            'ครอบคลุมเนื้อหาที่ออกสอบจริง'
         ],
-        who: ['น้อง ป.6 ที่เตรียมสอบเข้าโรงเรียนดัง'],
-        close: 'อ่านน้อย แต่ "ตรงจุด" ทำคะแนนได้จริง ไม่ต้องเสียเวลาลองผิดลองถูก!'
+        who: [
+            'น้อง ป.6 ที่เตรียมสอบเข้าโรงเรียนดัง'
+        ],
+        close: 'อ่านน้อย แต่ตรงจุด ทำคะแนนได้จริง ไม่ต้องเสียเวลาลองผิดลองถูก!'
     }
 };
 
-function openSheet(key) {
-    const d = sheetData[key];
+function openCourse(key) {
+    var d = courseData[key];
+    var priceRows = d.prices.map(function(p) {
+        return '<div style="display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid rgba(245,158,11,0.15);"><span style="font-size:0.78rem;color:#e9d5ff;">' + p.level + '</span><span style="font-size:0.78rem;font-weight:700;color:#fbbf24;">' + p.price + '</span></div>';
+    }).join('');
+    var subjectRows = d.subjects.map(function(s) { return '<li>' + s + '</li>'; }).join('');
+    var goalRows = d.goals.map(function(g) { return '<li>' + g + '</li>'; }).join('');
     document.getElementById('bs-title').textContent = d.title;
-    document.getElementById('bs-body').innerHTML = `
-        <img src="${d.img}" alt="${d.title}" class="bs-img">
-        <div class="promo-badge">🔥 โปรพิเศษ! จำนวนจำกัด</div>
-        <div style="background:${d.accent};border-radius:14px;padding:14px;margin-bottom:12px;">
-            <p style="color:white;font-weight:700;font-size:0.9rem;line-height:1.4;">${d.heading}</p>
-            <p style="color:rgba(255,255,255,0.85);font-size:0.75rem;margin-top:4px;">${d.sub}</p>
-        </div>
-        <div class="bs-section">
-            <div class="bs-section-title">✨ เนื้อหาครบ ตรงจุด</div>
-            <ul class="bs-list">
-                ${d.points.map(p => `<li>${p}</li>`).join('')}
-            </ul>
-        </div>
-        <div class="bs-section">
-            <div class="bs-section-title">👨‍🎓 เหมาะสำหรับ</div>
-            <ul class="bs-list">
-                ${d.who.map(w => `<li>${w}</li>`).join('')}
-            </ul>
-        </div>
-        <div style="background:#f3e8ff;border-radius:14px;padding:12px;margin-bottom:16px;border:1px solid rgba(167,139,250,0.3);">
-            <p style="font-size:0.78rem;color:#6b21a8;line-height:1.6;">💡 ${d.close}</p>
-        </div>
-        <a href="https://lin.ee/sH44xO2" target="_blank" class="bs-cta">
-            💬 ทักแชทเพื่อรับตัวอย่าง + สั่งซื้อ
-        </a>
-    `;
+    document.getElementById('bs-body').innerHTML =
+        '<img src="' + d.img + '" alt="' + d.title + '" class="bs-img">' +
+        '<div style="background:' + d.accent + ';border-radius:14px;padding:14px;margin-bottom:12px;">' +
+            '<p style="color:white;font-weight:700;font-size:0.9rem;">' + d.title + '</p>' +
+            '<p style="color:rgba(255,255,255,0.88);font-size:0.75rem;margin-top:3px;">' + d.sub + '</p>' +
+        '</div>' +
+        '<div class="bs-section"><div class="bs-section-title">💰 อัตราค่าเรียน</div>' + priceRows +
+        '<p style="font-size:0.7rem;color:#c084fc;margin-top:8px;">📌 ' + d.note + '</p></div>' +
+        '<div class="bs-section"><div class="bs-section-title">📚 วิชาที่เปิดสอน</div><ul class="bs-list">' + subjectRows + '</ul></div>' +
+        '<div class="bs-section"><div class="bs-section-title">🎯 เป้าหมายที่เราดูแล</div><ul class="bs-list">' + goalRows + '</ul></div>' +
+        '<div style="background:linear-gradient(135deg,#1a0a2e,#fef08a10);border:1.5px solid rgba(245,158,11,0.5);border-radius:14px;padding:12px;margin-bottom:16px;">' +
+            '<p style="font-size:0.78rem;color:#fbbf24;font-weight:600;line-height:1.6;">🔥 PROMOTION พิเศษ!<br>' + d.promo + '</p>' +
+        '</div>' +
+        '<div style="background:#2d1052;border-radius:14px;padding:12px;margin-bottom:16px;border:1px solid rgba(147,51,234,0.4);">' +
+            '<p style="font-size:0.78rem;color:#e9d5ff;line-height:1.6;">📲 สนใจปรึกษาปัญหาการเรียน วางแผนติวสอบ หรือเช็คตารางเรียน<br>ติดต่อได้เลยที่ LINE หรือโทร <strong style="color:#fbbf24;">095-675-8532</strong> (ครูฟรังก์)</p>' +
+        '</div>' +
+        '<a href="https://lin.ee/sH44xO2" target="_blank" class="bs-cta">💬 ทักแชท LINE สอบถามได้เลย!</a>';
+    document.getElementById('overlay').classList.add('active');
+    document.getElementById('bottom-sheet').classList.add('active');
+    document.body.style.overflow = 'hidden';
+    document.getElementById('bottom-sheet').scrollTop = 0;
+}
+
+function openSheet(key) {
+    var d = sheetData[key];
+    var pointRows = d.points.map(function(p) { return '<li>' + p + '</li>'; }).join('');
+    var whoRows = d.who.map(function(w) { return '<li>' + w + '</li>'; }).join('');
+    document.getElementById('bs-title').textContent = d.title;
+    document.getElementById('bs-body').innerHTML =
+        '<img src="' + d.img + '" alt="' + d.title + '" class="bs-img">' +
+        '<div class="promo-badge">🔥 โปรพิเศษ! จำนวนจำกัด</div>' +
+        '<div style="background:' + d.accent + ';border-radius:14px;padding:14px;margin-bottom:12px;">' +
+            '<p style="color:white;font-weight:700;font-size:0.9rem;line-height:1.4;">' + d.heading + '</p>' +
+            '<p style="color:rgba(255,255,255,0.85);font-size:0.75rem;margin-top:4px;">' + d.sub + '</p>' +
+        '</div>' +
+        '<div class="bs-section"><div class="bs-section-title">✨ เนื้อหาครบ ตรงจุด</div><ul class="bs-list">' + pointRows + '</ul></div>' +
+        '<div class="bs-section"><div class="bs-section-title">👨‍🎓 เหมาะสำหรับ</div><ul class="bs-list">' + whoRows + '</ul></div>' +
+        '<div style="background:#2d1052;border-radius:14px;padding:12px;margin-bottom:16px;border:1px solid rgba(245,158,11,0.25);">' +
+            '<p style="font-size:0.78rem;color:#fde68a;line-height:1.6;">💡 ' + d.close + '</p>' +
+        '</div>' +
+        '<a href="https://lin.ee/sH44xO2" target="_blank" class="bs-cta">💬 ทักแชทเพื่อรับตัวอย่าง + สั่งซื้อ</a>';
     document.getElementById('overlay').classList.add('active');
     document.getElementById('bottom-sheet').classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -812,12 +1008,12 @@ function scrollToSheets() {
     document.getElementById('sheets-section').scrollIntoView({ behavior: 'smooth' });
 }
 
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSheet(); });
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeSheet(); });
 
-let startY = 0;
-const bs = document.getElementById('bottom-sheet');
-bs.addEventListener('touchstart', e => { startY = e.touches[0].clientY; }, { passive: true });
-bs.addEventListener('touchend', e => {
+var startY = 0;
+var bs = document.getElementById('bottom-sheet');
+bs.addEventListener('touchstart', function(e) { startY = e.touches[0].clientY; }, { passive: true });
+bs.addEventListener('touchend', function(e) {
     if (e.changedTouches[0].clientY - startY > 80 && bs.scrollTop === 0) closeSheet();
 }, { passive: true });
 </script>
