@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutor Franc - ติวสอบ ม.1 & O-NET</title>
+    <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --p1: #7c3aed;
+            --p2: #a855f7;
+            --p3: #c084fc;
+            --p4: #e9d5ff;
+            --acc: #f0abfc;
+            --acc2: #fbbf24;
+            --bg: #faf5ff;
+            --bg2: #f3e8ff;
+            --card: #ffffff;
+            --text: #3b0764;
+            --text2: #6b21a8;
+            --text3: #9333ea;
+            --border: rgba(167,139,250,0.3);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Mitr', 'Sarabun', sans-serif;
+            background: var(--bg);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated background blobs */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -20%;
+            left: -10%;
+            width: 60%;
+            height: 60%;
+            background: radial-gradient(circle, rgba(167,139,250,0.25) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: floatBlob 8s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -10%;
+            right: -10%;
+            width: 55%;
+            height: 55%;
+            background: radial-gradient(circle, rgba(240,171,252,0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: floatBlob 10s ease-in-out infinite reverse;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes floatBlob {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(20px, -20px) scale(1.05); }
+        }
+
+        .wrapper {
+            max-width: 430px;
+            margin: 0 auto;
+            padding: 0 0 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+            margin-bottom: 0;
+        }
+
+        .hero-img-wrap {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-img-wrap::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 120px;
+            background: linear-gradient(to bottom, transparent, var(--bg));
+        }
+
+        .hero-img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            object-position: top center;
+            display: block;
+        }
+
+        /* Stars decoration */
+        .star {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--acc2);
+            animation: twinkle 2s ease-in-out infinite;
+        }
+        .star:nth-child(1) { top: 15%; left: 8%; animation-delay: 0s; }
+        .star:nth-child(2) { top: 30%; right: 10%; width: 5px; height: 5px; background: var(--acc); animation-delay: 0.6s; }
+        .star:nth-child(3) { top: 60%; left: 5%; width: 6px; height: 6px; animation-delay: 1.2s; }
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.3; transform: scale(0.5); }
+        }
+
+        /* ===== PROFILE ===== */
+        .profile {
+            text-align: center;
+            padding: 0 20px 24px;
+        }
+
+        .name {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: var(--text);
+            line-height: 1.2;
+            margin-bottom: 4px;
+        }
+
+        .name span {
+            background: linear-gradient(135deg, var(--p1), var(--p2), var(--acc));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tagline {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 6px;
+            margin-bottom: 12px;
+        }
+
+        .tag {
+            background: linear-gradient(135deg, var(--p1), var(--p2));
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 100px;
+            letter-spacing: 0.02em;
+        }
+
+        .tag.light {
+            background: var(--bg2);
+            color: var(--text2);
+            border: 1px solid var(--border);
+        }
+
+        .bio {
+            font-size: 0.82rem;
+            color: var(--text2);
+            line-height: 1.8;
+            font-weight: 400;
+        }
+
+        .bio .highlight {
+            color: var(--p1);
+            font-weight: 600;
+        }
+
+        /* ===== SOCIAL ===== */
+        .socials {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin: 16px 0 20px;
+        }
+
+        .soc-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            text-decoration: none;
+        }
+
+        .soc-btn {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+        }
+
+        .soc-btn:hover { transform: translateY(-3px) scale(1.1); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+        .soc-btn svg { width: 22px; height: 22px; }
+        .soc-label { font-size: 10px; color: var(--text3); font-weight: 600; letter-spacing: 0.03em; }
+
+        .soc-fb { background: linear-gradient(135deg, #1877f2, #0c52b5); }
+        .soc-tt { background: linear-gradient(135deg, #111, #333); border: 1px solid #555; }
+
+        /* ===== BUTTONS ===== */
+        .btns { padding: 0 16px; display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+
+        .cta-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 20px;
+            border-radius: 100px;
+            font-family: 'Mitr', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+            transition: all 0.25s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 60%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+            transition: left 0.5s ease;
+        }
+        .cta-btn:hover::before { left: 150%; }
+        .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
+
+        .btn-fb {
+            background: linear-gradient(135deg, #1877f2, #0c52b5);
+            box-shadow: 0 4px 15px rgba(24,119,242,0.3);
+        }
+        .btn-fb:hover { box-shadow: 0 8px 25px rgba(24,119,242,0.45); }
+
+        .btn-sheet {
+            background: linear-gradient(135deg, var(--p1), var(--p2));
+            box-shadow: 0 4px 15px rgba(124,58,237,0.3);
+        }
+        .btn-sheet:hover { box-shadow: 0 8px 25px rgba(124,58,237,0.45); }
+
+        /* ===== FREE BADGE ===== */
+        @keyframes pulse-badge {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(251,191,36,0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 0 0 6px rgba(251,191,36,0); }
+        }
+
+        .free-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: linear-gradient(135deg, #f59e0b, #fbbf24);
+            color: #78350f;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 100px;
+            animation: pulse-badge 2s ease-in-out infinite;
+        }
+
+        /* ===== SECTION HEADER ===== */
+        .section-hd {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 16px;
+            margin-bottom: 12px;
+        }
+
+        .section-hd h2 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .section-hd span {
+            font-size: 0.72rem;
+            color: var(--text3);
+        }
+
+        /* ===== SHEET CARDS ===== */
+        .cards-wrap {
+            padding: 0 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 28px;
+        }
+
+        .sheet-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1.5px solid rgba(167,139,250,0.25);
+            box-shadow: 0 4px 20px rgba(124,58,237,0.08);
+            display: flex;
+            transition: all 0.25s ease;
+            cursor: pointer;
+        }
+
+        .sheet-card:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(124,58,237,0.15); border-color: rgba(167,139,250,0.5); }
+
+        .sheet-card-img {
+            width: 110px;
+            flex-shrink: 0;
+            object-fit: cover;
+            display: block;
+        }
+
+        .sheet-card-body {
+            padding: 14px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .sheet-card-subj {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .sheet-card-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text);
+            line-height: 1.4;
+            margin-bottom: 6px;
+        }
+
+        .sheet-card-desc {
+            font-size: 0.72rem;
+            color: #6b7280;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .detail-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 100px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: 'Mitr', sans-serif;
+            color: white;
+        }
+
+        .detail-btn:hover { transform: scale(1.04); }
+
+        /* Subject colors */
+        .subj-thai { color: #7c3aed; }
+        .btn-thai { background: linear-gradient(135deg, #7c3aed, #a855f7); }
+
+        .subj-eng { color: #0369a1; }
+        .btn-eng { background: linear-gradient(135deg, #0284c7, #38bdf8); }
+
+        .subj-math { color: #b45309; }
+        .btn-math { background: linear-gradient(135deg, #d97706, #fbbf24); color: #78350f; }
+
+        /* ===== OVERLAY / BOTTOM SHEET ===== */
+        #overlay {
+            position: fixed; inset: 0;
+            background: rgba(59,7,100,0.5);
+            backdrop-filter: blur(6px);
+            z-index: 100;
+            opacity: 0; pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        #overlay.active { opacity: 1; pointer-events: all; }
+
+        #bottom-sheet {
+            position: fixed; bottom: 0;
+            left: 50%; transform: translateX(-50%) translateY(110%);
+            width: 100%; max-width: 430px;
+            max-height: 88dvh;
+            background: white;
+            border-radius: 28px 28px 0 0;
+            border-top: 3px solid var(--p3);
+            overflow-y: auto;
+            z-index: 101;
+            transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+            overscroll-behavior: contain;
+        }
+        #bottom-sheet::-webkit-scrollbar { width: 0; }
+        #bottom-sheet.active { transform: translateX(-50%) translateY(0); }
+
+        .bs-handle {
+            width: 44px; height: 5px;
+            background: var(--p4);
+            border-radius: 3px;
+            margin: 14px auto 0;
+        }
+
+        .bs-header {
+            position: sticky; top: 0;
+            background: white;
+            padding: 10px 16px 12px;
+            display: flex; align-items: center; justify-content: space-between;
+            border-bottom: 1px solid var(--bg2);
+            z-index: 10;
+        }
+
+        .bs-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .bs-close {
+            width: 34px; height: 34px;
+            border-radius: 50%;
+            background: var(--bg2);
+            border: none; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--text2);
+            transition: all 0.2s ease;
+            font-size: 1rem;
+        }
+        .bs-close:hover { background: var(--p4); transform: scale(1.1); }
+
+        .bs-body { padding: 16px; }
+
+        .bs-img {
+            width: 100%;
+            border-radius: 16px;
+            margin-bottom: 16px;
+            border: 2px solid var(--bg2);
+        }
+
+        .bs-section {
+            background: var(--bg2);
+            border-radius: 14px;
+            padding: 14px;
+            margin-bottom: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .bs-section-title {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--text2);
+            margin-bottom: 8px;
+            display: flex; align-items: center; gap: 5px;
+        }
+
+        .bs-list {
+            list-style: none;
+        }
+
+        .bs-list li {
+            font-size: 0.78rem;
+            color: var(--text);
+            padding: 5px 0;
+            border-bottom: 1px solid rgba(167,139,250,0.15);
+            display: flex; align-items: flex-start; gap: 7px;
+            line-height: 1.5;
+        }
+        .bs-list li:last-child { border-bottom: none; }
+        .bs-list li::before { content: '✦'; color: var(--p2); font-size: 0.65rem; margin-top: 3px; flex-shrink: 0; }
+
+        .bs-cta {
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            padding: 14px;
+            border-radius: 100px;
+            background: linear-gradient(135deg, var(--p1), var(--p2));
+            color: white;
+            font-family: 'Mitr', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            margin-top: 4px;
+            box-shadow: 0 4px 15px rgba(124,58,237,0.3);
+        }
+        .bs-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(124,58,237,0.4); }
+
+        .promo-badge {
+            background: linear-gradient(135deg, #dc2626, #f97316);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 100px;
+            display: inline-block;
+            margin-bottom: 12px;
+            animation: pulse-badge 2s infinite;
+        }
+
+        /* ===== FREE SHEETS SECTION ===== */
+        .free-section {
+            margin: 0 16px 28px;
+            background: linear-gradient(135deg, #fdf4ff, #f3e8ff);
+            border: 2px solid rgba(167,139,250,0.4);
+            border-radius: 20px;
+            padding: 18px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .free-section::before {
+            content: '🎁';
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 3rem;
+            opacity: 0.12;
+        }
+
+        .free-section-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+
+        .free-section-desc {
+            font-size: 0.78rem;
+            color: var(--text2);
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .free-subjects {
+            display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px;
+        }
+
+        .free-subj-tag {
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 100px;
+            border: 1.5px solid;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 0.7rem;
+            color: #a78bfa;
+            padding: 0 16px;
+        }
+
+        /* Scroll hint arrow */
+        @keyframes bounce-y {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(4px); }
+        }
+        .bounce { animation: bounce-y 1.5s ease-in-out infinite; display: inline-block; }
+
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+
+    <!-- HERO -->
+    <div class="hero">
+        <div class="hero-img-wrap">
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <img src="https://i.postimg.cc/FHGJfT48/MEITU-20260405-022243276.jpg" alt="Tutor Franc" class="hero-img">
+        </div>
+    </div>
+
+    <!-- PROFILE -->
+    <div class="profile">
+        <h1 class="name"><span>Tutor Franc</span> 👩‍🏫</h1>
+
+        <div class="tagline">
+            <span class="tag">ติวสอบเข้า ม.1</span>
+            <span class="tag">O-NET</span>
+            <span class="tag">เพิ่มเกรด</span>
+            <span class="tag light">อนุบาล – ม.6</span>
+        </div>
+
+        <p class="bio">
+            <span class="highlight">คณิตศาสตร์ · ภาษาอังกฤษ · ภาษาไทย</span><br>
+            เข้าใจง่าย ใช้สอบได้จริง 📚<br>
+            <span class="bounce">👇</span> แจกชีทติวสอบเข้า ม.1 <strong class="highlight">ฟรี 3 วิชา!</strong>
+        </p>
+
+        <!-- Socials -->
+        <div class="socials">
+            <a href="https://www.facebook.com/profile.php?id=100063601268881" target="_blank" class="soc-item">
+                <div class="soc-btn soc-fb">
+                    <svg fill="white" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </div>
+                <span class="soc-label">Facebook</span>
+            </a>
+            <a href="https://www.tiktok.com/@franc_tutor?_r=1&_t=ZS-95BNxHtKPW1" target="_blank" class="soc-item">
+                <div class="soc-btn soc-tt">
+                    <svg fill="white" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                </div>
+                <span class="soc-label">TikTok</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- CTA BUTTONS -->
+    <div class="btns">
+        <a href="https://www.facebook.com/profile.php?id=100063601268881" target="_blank" class="cta-btn btn-fb">
+            <svg width="18" height="18" fill="white" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            ติดต่อ / สมัครเรียนผ่าน Facebook
+        </a>
+        <button class="cta-btn btn-sheet" onclick="scrollToSheets()">
+            <svg width="18" height="18" fill="none" stroke="white" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+            ดูชีทติวสอบ ม.1 ทั้งหมด
+        </button>
+    </div>
+
+    <!-- FREE SHEETS CALLOUT -->
+    <div class="free-section">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+            <span class="free-badge">🎁 ฟรี!</span>
+        </div>
+        <div class="free-section-title">แจกชีทติวสอบเข้า ม.1 ฟรี 3 วิชา!</div>
+        <div class="free-section-desc">รับชีทสรุปเนื้อหาสำคัญ พร้อมแนวข้อสอบ<br>จากโรงเรียนดัง ครบ 3 วิชาหลัก</div>
+        <div class="free-subjects">
+            <span class="free-subj-tag" style="color:#7c3aed;border-color:#c084fc;background:rgba(167,139,250,0.1);">📖 ภาษาไทย</span>
+            <span class="free-subj-tag" style="color:#0369a1;border-color:#7dd3fc;background:rgba(125,211,252,0.1);">🔤 ภาษาอังกฤษ</span>
+            <span class="free-subj-tag" style="color:#b45309;border-color:#fcd34d;background:rgba(253,211,77,0.1);">🔢 คณิตศาสตร์</span>
+        </div>
+        <a href="https://www.facebook.com/profile.php?id=100063601268881" target="_blank" class="bs-cta">
+            ทักแชทรับชีทฟรีเลย! 🎉
+        </a>
+    </div>
+
+    <!-- SHEET CARDS -->
+    <div id="sheets-section">
+        <div class="section-hd">
+            <h2>📋 ชีทติวสอบของเรา</h2>
+            <span>กดดูรายละเอียด →</span>
+        </div>
+
+        <div class="cards-wrap">
+
+            <!-- Thai -->
+            <div class="sheet-card" onclick="openSheet('thai')">
+                <img src="https://i.postimg.cc/52P69jBn/IMG-1281.jpg" alt="ชีทภาษาไทย" class="sheet-card-img">
+                <div class="sheet-card-body">
+                    <div>
+                        <div class="sheet-card-subj subj-thai">📖 ภาษาไทย</div>
+                        <div class="sheet-card-title">เจาะลึกข้อสอบเข้า ม.1<br>ชีทเดียวจบ ครบทุกแนว!</div>
+                        <div class="sheet-card-desc">รวมแนวข้อสอบออกสอบจริง + เฉลยละเอียด</div>
+                    </div>
+                    <button class="detail-btn btn-thai">ดูรายละเอียด →</button>
+                </div>
+            </div>
+
+            <!-- English -->
+            <div class="sheet-card" onclick="openSheet('eng')">
+                <img src="https://i.postimg.cc/hPsGMh5q/IMG-1280.jpg" alt="ชีทภาษาอังกฤษ" class="sheet-card-img">
+                <div class="sheet-card-body">
+                    <div>
+                        <div class="sheet-card-subj subj-eng">🔤 ภาษาอังกฤษ</div>
+                        <div class="sheet-card-title">เจาะลึกข้อสอบเข้า ม.1<br>เตรียมพร้อม มั่นใจ 100%!</div>
+                        <div class="sheet-card-desc">Grammar สำคัญ + แนวข้อสอบจริง อัปเดตล่าสุด</div>
+                    </div>
+                    <button class="detail-btn btn-eng">ดูรายละเอียด →</button>
+                </div>
+            </div>
+
+            <!-- Math -->
+            <div class="sheet-card" onclick="openSheet('math')">
+                <img src="https://i.postimg.cc/mkNgvrZd/IMG-1279.jpg" alt="ชีทคณิตศาสตร์" class="sheet-card-img">
+                <div class="sheet-card-body">
+                    <div>
+                        <div class="sheet-card-subj subj-math">🔢 คณิตศาสตร์</div>
+                        <div class="sheet-card-title">ชีทเจาะลึกข้อสอบจริง<br>อัปเดตล่าสุด!</div>
+                        <div class="sheet-card-desc">รวมสูตร + เทคนิคทำเร็ว เฉลยละเอียด</div>
+                    </div>
+                    <button class="detail-btn btn-math">ดูรายละเอียด →</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">© 2025 Tutor Franc · ติวด้วยรัก สอนด้วยใจ 💜</div>
+
+</div>
+
+<!-- OVERLAY -->
+<div id="overlay" onclick="closeSheet()"></div>
+
+<!-- BOTTOM SHEET -->
+<div id="bottom-sheet">
+    <div class="bs-handle"></div>
+    <div class="bs-header">
+        <div class="bs-title" id="bs-title">รายละเอียด</div>
+        <button class="bs-close" onclick="closeSheet()">✕</button>
+    </div>
+    <div class="bs-body" id="bs-body"></div>
+</div>
+
+<script>
+const sheetData = {
+    thai: {
+        title: '📖 ชีทภาษาไทย สอบเข้า ม.1',
+        img: 'https://i.postimg.cc/52P69jBn/IMG-1281.jpg',
+        accent: 'linear-gradient(135deg,#7c3aed,#a855f7)',
+        heading: 'เจาะลึกข้อสอบเข้า ม.1 ภาษาไทย โรงเรียนดัง',
+        sub: 'ชีทเดียวจบ ครบทุกแนวข้อสอบ!',
+        points: [
+            'รวมแนวข้อสอบ "ออกสอบจริง" จากโรงเรียนดัง',
+            'สรุปเนื้อหาสำคัญ อ่านง่าย เข้าใจไว',
+            'เทคนิคทำข้อสอบ + จุดที่ออกบ่อยทุกปี',
+            'พร้อมเฉลยละเอียด อธิบายทุกข้อ'
+        ],
+        who: ['นักเรียน ป.6 ที่เตรียมสอบเข้า ม.1', 'คนที่อยาก "เก็บคะแนนภาษาไทยให้เต็ม!"', 'คนที่ไม่มีเวลาอ่านหนังสือเยอะ'],
+        close: 'อ่านเล่มนี้ = รู้แนว + แม่นจุดออกสอบ เพิ่มโอกาสสอบติดโรงเรียนดัง! ราคาเบาๆ แต่เนื้อหาแน่นมาก'
+    },
+    eng: {
+        title: '🔤 ชีทภาษาอังกฤษ สอบเข้า ม.1',
+        img: 'https://i.postimg.cc/hPsGMh5q/IMG-1280.jpg',
+        accent: 'linear-gradient(135deg,#0284c7,#38bdf8)',
+        heading: 'เจาะลึกข้อสอบเข้า ม.1 วิชาภาษาอังกฤษ',
+        sub: 'เตรียมพร้อมก่อนสอบจริง แบบมั่นใจ 100%!',
+        points: [
+            'สรุป Grammar สำคัญ เข้าใจง่าย',
+            'แนวข้อสอบจริง พร้อมเฉลยละเอียดทุกข้อ',
+            'เทคนิคทำข้อสอบให้ไว + แม่นยำ',
+            'รวมข้อสอบโรงเรียนดัง อัปเดตล่าสุด'
+        ],
+        who: ['นักเรียน ป.6 ที่เตรียมสอบเข้า ม.1', 'ห้องพิเศษ / โรงเรียนชั้นนำ'],
+        close: 'อ่านจบ = ทำข้อสอบได้จริง ไม่ต้องเสียเวลาลองผิดลองถูก! ใช้ทบทวนก่อนสอบ / ฝึกทำโจทย์ / เก็บคะแนนให้ปัง'
+    },
+    math: {
+        title: '🔢 ชีทคณิตศาสตร์ สอบเข้า ม.1',
+        img: 'https://i.postimg.cc/mkNgvrZd/IMG-1279.jpg',
+        accent: 'linear-gradient(135deg,#d97706,#fbbf24)',
+        heading: 'ติวสอบเข้า ม.1 โรงเรียนดัง วิชาคณิตศาสตร์',
+        sub: 'ชีท "เจาะลึกข้อสอบจริง" อัปเดตล่าสุด!',
+        points: [
+            'รวมแนวข้อสอบที่ออกบ่อย',
+            'สรุปสูตร + เทคนิคทำเร็ว',
+            'มีเฉลยละเอียด เข้าใจง่าย',
+            'ครอบคลุมเนื้อหาที่ "ออกสอบจริง"'
+        ],
+        who: ['น้อง ป.6 ที่เตรียมสอบเข้าโรงเรียนดัง'],
+        close: 'อ่านน้อย แต่ "ตรงจุด" ทำคะแนนได้จริง ไม่ต้องเสียเวลาลองผิดลองถูก!'
+    }
+};
+
+function openSheet(key) {
+    const d = sheetData[key];
+    document.getElementById('bs-title').textContent = d.title;
+    document.getElementById('bs-body').innerHTML = `
+        <img src="${d.img}" alt="${d.title}" class="bs-img">
+        <div class="promo-badge">🔥 โปรพิเศษ! จำนวนจำกัด</div>
+        <div style="background:${d.accent};border-radius:14px;padding:14px;margin-bottom:12px;">
+            <p style="color:white;font-weight:700;font-size:0.9rem;line-height:1.4;">${d.heading}</p>
+            <p style="color:rgba(255,255,255,0.85);font-size:0.75rem;margin-top:4px;">${d.sub}</p>
+        </div>
+        <div class="bs-section">
+            <div class="bs-section-title">✨ เนื้อหาครบ ตรงจุด</div>
+            <ul class="bs-list">
+                ${d.points.map(p => `<li>${p}</li>`).join('')}
+            </ul>
+        </div>
+        <div class="bs-section">
+            <div class="bs-section-title">👨‍🎓 เหมาะสำหรับ</div>
+            <ul class="bs-list">
+                ${d.who.map(w => `<li>${w}</li>`).join('')}
+            </ul>
+        </div>
+        <div style="background:#f3e8ff;border-radius:14px;padding:12px;margin-bottom:16px;border:1px solid rgba(167,139,250,0.3);">
+            <p style="font-size:0.78rem;color:#6b21a8;line-height:1.6;">💡 ${d.close}</p>
+        </div>
+        <a href="https://www.facebook.com/profile.php?id=100063601268881" target="_blank" class="bs-cta">
+            💬 ทักแชทเพื่อรับตัวอย่าง + สั่งซื้อ
+        </a>
+    `;
+    document.getElementById('overlay').classList.add('active');
+    document.getElementById('bottom-sheet').classList.add('active');
+    document.body.style.overflow = 'hidden';
+    document.getElementById('bottom-sheet').scrollTop = 0;
+}
+
+function closeSheet() {
+    document.getElementById('overlay').classList.remove('active');
+    document.getElementById('bottom-sheet').classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+function scrollToSheets() {
+    document.getElementById('sheets-section').scrollIntoView({ behavior: 'smooth' });
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSheet(); });
+
+let startY = 0;
+const bs = document.getElementById('bottom-sheet');
+bs.addEventListener('touchstart', e => { startY = e.touches[0].clientY; }, { passive: true });
+bs.addEventListener('touchend', e => {
+    if (e.changedTouches[0].clientY - startY > 80 && bs.scrollTop === 0) closeSheet();
+}, { passive: true });
+</script>
+</body>
+</html>
+        
